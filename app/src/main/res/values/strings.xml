@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">JusticeApp</string>
+    <string name="action_settings">Settings</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="common_greeting">Halo, selamat</string>
+
+    <string name="configure_app">Belum ada cabang yang dipilih di dalam aplikasi ini. Konfigurasikan lewat pengaturan aplikasi ini.</string>
+    <string name="info_success_order">Pesanan berhasil dibuat.</string>
+    <string name="info_before_order">Buat pesanan sekarang juga?</string>
+    <string name="info_loading">Tunggu sebentar....</string>
+    <string name="info_understand">Mengerti</string>
+    <string name="info_cancel">Batal</string>
+    <string name="info_search_result">Hasil pencarian</string>
+    <string name="info_please_choose_product_first">Mohon untuk pilih produk terlebih dahulu</string>
+    <string name="info_no_branch_selected">Belum ada cabang ditautkan</string>
+    <string name="info_no_product">Belum ada produk di sini</string>
+    <string name="info_enter_pin">Masukkan PIN untuk melanjutkan</string>
+    <string name="info_intro_1">Modern dan mudah dalam mengatur transaksi</string>
+    <string name="info_intro_2">Lebih bersih dan teratur tanpa perlu menggunakan kertas konvensiona</string>
+    <string name="info_intro_3">Mengatur cabang dan terskala dengan baik</string>
+    <string name="info_enter_pin_desc">Untuk membuka pengaturan aplikasi ini, masukkan PIN terlebih dahulu. Jika anda tidak mengetahui PIN, hubungi administrator</string>
+    <string name="title_activity_prompt_pin">PromptPinActivity</string>
+    <string name="common_bookmenu">Buku menu</string>
+    <string name="common_cashier">Halaman kasir</string>
+    <string name="title_branch">Pilih cabang</string>
+    <string name="title_activity_etalase">EtalaseActivity</string>
+    <string name="info_wrong_pin">PIN yang anda masukkan salah.</string>
+    <string name="common_understand">Mengerti</string>
+
+</resources>
