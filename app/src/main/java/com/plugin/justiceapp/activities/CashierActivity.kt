@@ -111,6 +111,8 @@ class CashierActivity : AppCompatActivity() {
             val convertedOrder = mutableListOf<OrderCashier>()
             for(lo in localOrders){ convertedOrder.add(Gson().fromJson(lo.orderInJson, OrderCashier::class.java)) }
             orderViewModel.updateOrderValue(convertedOrder)
+        } ?: kotlin.run {
+            toast("Branch is null")
         }
     }
 

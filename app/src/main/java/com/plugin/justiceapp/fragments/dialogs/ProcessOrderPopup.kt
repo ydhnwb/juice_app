@@ -22,6 +22,7 @@ import com.plugin.justiceapp.viewmodels.OrderState
 import com.plugin.justiceapp.viewmodels.OrderViewModel
 import kotlinx.android.synthetic.main.popup_process_order.view.*
 import org.koin.android.ext.android.inject
+import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class ProcessOrderPopup : DialogFragment(){
@@ -36,14 +37,13 @@ class ProcessOrderPopup : DialogFragment(){
         }
     }
 
-    private val orderViewModel: OrderViewModel by viewModel()
+    private val orderViewModel: OrderViewModel by sharedViewModel()
     private val db : AppDatabase by inject()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? = inflater.inflate(R.layout.popup_process_order,container, false)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-//        db = Room.databaseBuilder(activity!!.applicationContext, AppDatabase::class.java, "justice_cashier").allowMainThreadQueries().build()
         view.process_order_rv.apply {
             layoutManager = LinearLayoutManager(activity)
             adapter =  DetailOrderAltAdapter(mutableListOf(), requireActivity())
@@ -98,7 +98,8 @@ class ProcessOrderPopup : DialogFragment(){
             this.dismiss()
         }
         view.process_order_process.setOnClickListener {
-            if(JusticeUtils.getCurrentBranch(requireActivity()) != 0){
+            val branch = arguments?.getInt("branch")
+            if(branch != null){
                 view.process_order_in_buyername.error = null
                 val buyerName = view.process_order_et_buyername.text.toString().trim()
                 if(buyerName.isNotEmpty()){

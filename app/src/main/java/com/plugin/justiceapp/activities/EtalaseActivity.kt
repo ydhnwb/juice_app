@@ -162,7 +162,8 @@ class EtalaseActivity : AppCompatActivity() {
         for (c in categories){ fragmentAdapter.addFragment(BookmenuFragment.instance(c), c.name.toString()) }
         fragmentAdapter.addFragment(BookmenuFragment.instance(null), resources.getString(R.string.info_search_result))
         viewPager.adapter = fragmentAdapter
-        tabLayout.setupWithViewPager(viewPager)
+        tabLayout
+            .setupWithViewPager(viewPager)
     }
 
     override fun onResume() {
