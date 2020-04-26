@@ -59,7 +59,8 @@ class OrderAdapter (private var orders : MutableList<OrderCashier>, private var 
                 order_detail.parentLayout.order_item.text = "$totalQuantity items"
                 setOnClickListener {
                     val fragmentManager = context as AppCompatActivity
-                    ProcessOrderPopup.instance(order).show(fragmentManager.supportFragmentManager, "order_popup")
+                    val branch = context.intent.getStringExtra("branch")!!
+                    ProcessOrderPopup.instance(order, branch.toInt()).show(fragmentManager.supportFragmentManager, "order_popup")
                 }
             }
         }

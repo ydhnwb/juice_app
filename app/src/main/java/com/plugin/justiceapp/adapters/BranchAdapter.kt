@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.plugin.justiceapp.R
+import com.plugin.justiceapp.activities.CashierActivity
 import com.plugin.justiceapp.activities.EtalaseActivity
 import com.plugin.justiceapp.models.Branch
 import kotlinx.android.synthetic.main.list_item_branch.view.*
@@ -40,6 +41,10 @@ class BranchAdapter (private val branches: MutableList<Branch>, private val cont
                     val x = context.intent.getBooleanExtra("is_cashier", false)
                     if(!x){
                         context.startActivity(Intent(context, EtalaseActivity::class.java).apply {
+                            putExtra("branch", branch.id.toString())
+                        })
+                    }else{
+                        context.startActivity(Intent(context, CashierActivity::class.java).apply {
                             putExtra("branch", branch.id.toString())
                         })
                     }

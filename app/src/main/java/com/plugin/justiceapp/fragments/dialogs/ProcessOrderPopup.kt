@@ -26,9 +26,10 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class ProcessOrderPopup : DialogFragment(){
     companion object {
-        fun instance(order : OrderCashier) : ProcessOrderPopup {
+        fun instance(order : OrderCashier, branch: Int?) : ProcessOrderPopup {
             val args = Bundle()
             args.putParcelable("order", order)
+            branch?.let { args.putInt("branch", it) }
             return ProcessOrderPopup().apply {
                 arguments = args
             }
@@ -119,11 +120,15 @@ class ProcessOrderPopup : DialogFragment(){
     }
 
     private fun delete(generatedId: String){
-        db.localOrderDao().deleteByGeneratedId(generatedId)
-        val localOrders : MutableList<LocalOrder> = db.localOrderDao().getAllLocalOrder() as MutableList<LocalOrder>
-        val convertedOrder = mutableListOf<OrderCashier>()
-        for(lo in localOrders){ convertedOrder.add(Gson().fromJson(lo.orderInJson, OrderCashier::class.java)) }
-        orderViewModel.updateOrderValue(convertedOrder)
+        val branch = arguments?.getInt("branch")
+        branch?.let {
+            db.localOrderDao().deleteByGeneratedId(generatedId)
+            val localOrders : MutableList<LocalOrder> = db.localOrderDao().getAllLocalOrder(it.toString()) as MutableList<LocalOrder>
+            val convertedOrder = mutableListOf<OrderCashier>()
+            for(lo in localOrders){ convertedOrder.add(Gson().fromJson(lo.orderInJson, OrderCashier::class.java)) }
+            orderViewModel.updateOrderValue(convertedOrder)
+        }
+
     }
 
     private fun toast(message : String) = Toast.makeText(activity, message, Toast.LENGTH_LONG).show()

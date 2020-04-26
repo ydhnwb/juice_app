@@ -40,7 +40,6 @@ class PromptPinActivity : AppCompatActivity() {
 
     private val mLoginListener: OnPFLockScreenLoginListener = object : OnPFLockScreenLoginListener {
         override fun onCodeInputSuccessful() {
-            toast("Success")
             startActivity(Intent(this@PromptPinActivity, BranchActivity::class.java).apply {
                 putExtra("is_cashier", intent.getBooleanExtra("is_cashier", false))
             })
@@ -50,7 +49,6 @@ class PromptPinActivity : AppCompatActivity() {
         override fun onFingerprintSuccessful() { toast("Success Finger") }
 
         override fun onPinLoginFailed() {
-            toast("Failed code")
             AlertDialog.Builder(this@PromptPinActivity).apply {
                 setMessage(resources.getString(R.string.info_wrong_pin))
                 setPositiveButton(resources.getString(R.string.common_understand)){o, _ -> o.dismiss()}
@@ -96,6 +94,4 @@ class PromptPinActivity : AppCompatActivity() {
         fragment.setCodeCreateListener(mCodeCreateListener)
         supportFragmentManager.beginTransaction().replace(R.id.container_view, fragment).commit()
     }
-
-
 }

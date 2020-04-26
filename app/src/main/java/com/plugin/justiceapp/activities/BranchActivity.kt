@@ -45,4 +45,5 @@ class BranchActivity : AppCompatActivity() {
 
     private fun handleState(it: List<Branch>) = rv_branch.adapter?.let { x -> if(x is BranchAdapter){ x.updateList(it) } }
     private fun toast(message: String) = Toast.makeText(this, message, Toast.LENGTH_LONG).show()
+    private fun isCashier() : Boolean = intent.getBooleanExtra("is_cashier", false)
 }
