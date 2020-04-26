@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import coil.api.load
 import coil.transform.RoundedCornersTransformation
 import com.plugin.justiceapp.R
+import com.plugin.justiceapp.fragments.dialogs.ToppingPopup
 import com.plugin.justiceapp.models.Product
 import com.plugin.justiceapp.utils.JusticeUtils
 import com.plugin.justiceapp.viewmodels.ProductViewModel
@@ -43,7 +44,7 @@ class ProductAdapter (private var products : MutableList<Product>, private var c
 //                productViewModel.addSelectedProduct(product)
                     val p : Product = product
                     val fragmentManager = context as AppCompatActivity
-//                    ToppingPopup.instance(p).show(fragmentManager.supportFragmentManager, "topping_popup")
+                    ToppingPopup.instance(p).show(fragmentManager.supportFragmentManager, "topping_popup")
                 }
             }
         }
