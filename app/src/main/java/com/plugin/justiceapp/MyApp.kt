@@ -1,7 +1,10 @@
 package com.plugin.justiceapp
 
 import android.app.Application
+import androidx.room.Room
+import com.plugin.justiceapp.databases.AppDatabase
 import com.plugin.justiceapp.viewmodels.BranchViewModel
+import com.plugin.justiceapp.viewmodels.OrderViewModel
 import com.plugin.justiceapp.viewmodels.ProductViewModel
 import com.plugin.justiceapp.webservices.JustApi
 import org.koin.android.ext.koin.androidContext
@@ -17,7 +20,7 @@ class MyApp : Application(){
         startKoin {
             androidLogger(Level.DEBUG)
             androidContext(this@MyApp)
-            modules(listOf(retrofitModules, viewModelModules))
+            modules(listOf(retrofitModules, viewModelModules, roomModules))
         }
     }
 }
@@ -26,7 +29,14 @@ val retrofitModules = module {
     single { JustApi.instance() }
 }
 
+val roomModules = module {
+    single {
+        Room.databaseBuilder(androidContext(), AppDatabase::class.java, "justice_cashier").allowMainThreadQueries().build()
+    }
+}
+
 val viewModelModules = module {
     viewModel { ProductViewModel(get()) }
     viewModel { BranchViewModel(get()) }
+    viewModel { OrderViewModel(get()) }
 }

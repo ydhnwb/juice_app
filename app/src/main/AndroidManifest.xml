@@ -12,12 +12,16 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:usesCleartextTraffic="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">
+        <activity
+            android:name=".activities.CashierActivity"
+            android:label="@string/title_activity_cashier"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".activities.EtalaseActivity"
             android:label="@string/title_activity_etalase"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".activities.BranchActivity" />
         <activity
             android:name=".activities.PromptPinActivity"

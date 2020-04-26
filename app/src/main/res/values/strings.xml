@@ -33,5 +33,18 @@
     <string name="title_activity_etalase">EtalaseActivity</string>
     <string name="info_wrong_pin">PIN yang anda masukkan salah.</string>
     <string name="common_understand">Mengerti</string>
+    <string name="title_activity_cashier">CashierActivity</string>
 
+    <string name="title_activity_setting">Setting</string>
+    <string name="info_no_desc">Tidak ada deskripsi</string>
+    <string name="info_waiting_for_transaction">Belum ada orderan masuk kali ini</string>
+    <string name="hint_buyer_name">Nama pembeli</string>
+    <string name="popup_total_price">Rp. 0</string>
+    <string name="btn_process_order">Proses pesanan</string>
+    <string name="btn_delete">Hapus</string>
+    <string name="info_cannot_order">Tidak dapat membuat pesanan</string>
+    <string name="info_wait">Tunggu sebentar...</string>
+    <string name="info_name_cannot_be_blank">Nama pembeli tidak boleh kosong</string>
+    <string name="lorem">Lorem ipsum</string>
+    <string name="info_no_topping">Tidak ada topping dipilih</string>
 </resources>

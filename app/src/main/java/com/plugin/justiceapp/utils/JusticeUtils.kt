@@ -3,9 +3,14 @@ package com.plugin.justiceapp.utils
 import android.content.Context
 import java.text.NumberFormat
 import java.util.*
+import kotlin.random.Random
 
 class JusticeUtils {
     companion object {
+        const val PUSHER_KEY = "af150b12c7f8cf0e920f"
+        const val CLUSTER_NAME = "ap1"
+        const val CHANNEL_NAME = "product-order"
+        const val EVENT_NAME = "App\\Events\\Order"
         var API_ENDPOINT = "http://juice-apps.herokuapp.com/"
 
         fun getToken(c: Context): String? {
@@ -95,6 +100,13 @@ class JusticeUtils {
         fun getDeviceId(context: Context): String? {
             val pref = context.getSharedPreferences("UTILS", Context.MODE_PRIVATE)
             return pref.getString("DEVICE_ID", null)
+        }
+
+        fun getRandomMillis() : String {
+            val charPool : List<Char> = ('a'..'z') + ('A'..'Z') + ('0'..'9')
+            return (1..3).map { _ -> Random.nextInt(0, charPool.size) }
+                .map(charPool::get)
+                .joinToString("")
         }
     }
 }

@@ -53,6 +53,10 @@ interface JusticeAPIService{
     @Headers("Content-Type: application/json")
     @POST("api/order")
     fun createOrder(@Body order : RequestBody) : Call<WrappedResponse<Order>>
+
+    @Headers("Content-Type: application/json")
+    @POST("api/order/confirm")
+    fun confirmOrder(@Body order : RequestBody) : Call<WrappedResponse<OrderCashier>>
 }
 
 data class WrappedResponse<T>(
